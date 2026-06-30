@@ -1,0 +1,50 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; background: #f4f4f4; }
+nav { background: #333; padding: 1rem; text-align: center; }
+nav a { color: white; margin: 0 1rem; text-decoration: none; }
+header { text-align: center; padding: 4rem 2rem; background: #333; color: white; }
+section { padding: 3rem; max-width: 800px; margin: 0 auto; }
+.project { background: white; padding: 2rem; margin: 1rem 0; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+/* Mặc định cho Mobile (1 cột) */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.project-card {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+/* Khi lên màn hình Máy tính (Tablet/PC) - Tự động chia thành lưới 3 cột */
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* Khi ở chế độ tối, toàn bộ body sẽ ăn theo class này */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+body.dark-mode .project-card {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Class này sẽ được JS tự động thêm vào khi cuộn tới */
+.fade-in.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
